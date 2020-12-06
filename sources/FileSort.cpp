@@ -8,9 +8,9 @@ const size_t Line = 16;
 const size_t ZeroPosition = 0;
 const size_t Size = 29;
 
-FileSort::FileSort(const bf::path& ftp_path)
+FileSort::FileSort(const bf::path& ftp_p)
 {
-    this->ftp_path = ftp_path;
+    this->ftp_path = ftp_p;
 
     if (bf::is_directory(ftp_path)) {
         filer(ftp_path);
