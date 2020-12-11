@@ -44,29 +44,23 @@ size_t FileSort::GetNumBrokers()
 }
 void FileSort::filer(const bf::path &path) {
     for (bf::directory_entry &x : bf::directory_iterator(path)) {
-        // Директория или Символьная ссылка
         if (bf::is_directory(x) || bf::is_symlink(x))
             filer(x.path());
-        // Проверка на обычность
         if (!bf::is_regular_file(x))
             continue;
 
         std::string file_name = x.path().filename().string(),
                 extension = x.path().extension().string();
 
-        // Проверка типа файла
         if (file_name.find("balance_") != ZeroPosition)
             continue;
 
-        // Проверка спец. символа между номером счета и датой
         if (file_name[Line] != '_')
             continue;
 
-        // Проверка разрешения
         if (extension != ".txt")
             continue;
 
-        // Проверка актуальности
         if (file_name.size() != Size)
             continue;
 
