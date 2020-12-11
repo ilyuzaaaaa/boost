@@ -18,7 +18,6 @@ class FileSort
 {
     private:
     bf::path ftp_path;
-    // Имя Брокера, Номер Счёта, Дата, Кол-во
     std::map<std::string, std::map<int, std::pair<int, int>>> Brokers;
     size_t NumBrokers;
     public:
