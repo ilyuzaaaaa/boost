@@ -6,7 +6,6 @@ const size_t PositionTwo = 17;
 const size_t Length = 8;
 const size_t Line = 16;
 const size_t ZeroPosition = 0;
-const size_t Size = 29;
 
 FileSort::FileSort(const bf::path& ftp_p)
 {
@@ -61,7 +60,7 @@ void FileSort::filer(const bf::path &path) {
         if (extension != ".txt")
             continue;
 
-        if (file_name.size() != Size)
+        if (file_name.substr(file_name.length() - 3, 3) == "old")
             continue;
 
         int account;
